@@ -1,13 +1,13 @@
-package dev.drzymala.metaheuristicsalesman;
+package dev.drzymala.speedysalesman;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MetaheuristicsalesmanApplication {
+public class SpeedysalesmanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MetaheuristicsalesmanApplication.class, args);
+		SpringApplication.run(SpeedysalesmanApplication.class, args);
 	}
 
 }

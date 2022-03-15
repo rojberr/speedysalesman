@@ -1,4 +1,4 @@
-package dev.drzymala.metaheuristicsalesman.solution;
+package dev.drzymala.speedysalesman.algorithm;
 
 import lombok.Value;
 

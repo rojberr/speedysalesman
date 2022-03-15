@@ -1,4 +1,4 @@
-package dev.drzymala.metaheuristicsalesman;
+package dev.drzymala.speedysalesman;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
