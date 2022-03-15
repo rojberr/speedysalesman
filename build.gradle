@@ -32,3 +32,13 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+bootJar {
+    manifest {
+        attributes 'Start-Class': 'dev.drzymala.speedysalesman.SpeedySalesmanApplication'
+    }
+}
+
+jar {
+    enabled = false
+}
