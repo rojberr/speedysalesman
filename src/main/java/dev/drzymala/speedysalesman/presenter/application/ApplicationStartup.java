@@ -18,9 +18,9 @@ public class ApplicationStartup implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        cityList.save(generator.generate(25L));
+        cityList.save(generator.generate(3L));
         System.out.println(cityList);
 
-//        traveller.findPathByFindingShortest(generator.ge);
+        System.out.println(traveller.getGreedyPath(cityList.listAll()));
     }
 }
