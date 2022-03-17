@@ -19,6 +19,6 @@ public class SenderController {
     @ResponseStatus(HttpStatus.OK)
     public String doRegister(@ModelAttribute("user") User user) {
         sender.register(user.getEmail());
-        return "index";
+        return "register_success";
     }
 }
