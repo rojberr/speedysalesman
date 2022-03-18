@@ -2,6 +2,7 @@ package dev.drzymala.speedysalesman.algorithm.infrastructure;
 
 import dev.drzymala.speedysalesman.algorithm.domain.City;
 import dev.drzymala.speedysalesman.algorithm.domain.CityRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+@Slf4j
 @Repository
 public class MemoryCityRepository implements CityRepository {
 

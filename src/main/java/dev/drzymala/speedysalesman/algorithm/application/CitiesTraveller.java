@@ -2,6 +2,7 @@ package dev.drzymala.speedysalesman.algorithm.application;
 
 import dev.drzymala.speedysalesman.algorithm.application.port.Traveller;
 import dev.drzymala.speedysalesman.algorithm.domain.City;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import static java.util.Collections.emptyList;
 
+@Slf4j
 @Service
 public class CitiesTraveller implements Traveller {
 

@@ -1,10 +1,12 @@
 package dev.drzymala.speedysalesman.algorithm.domain;
 
 import lombok.Value;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.Random;
 
+@Slf4j
 @Value
 @Repository
 public class City {

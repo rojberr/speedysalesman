@@ -4,9 +4,11 @@ import dev.drzymala.speedysalesman.algorithm.application.port.Generator;
 import dev.drzymala.speedysalesman.algorithm.application.port.Traveller;
 import dev.drzymala.speedysalesman.algorithm.domain.CityRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 @AllArgsConstructor
 public class ApplicationStartup implements CommandLineRunner {
