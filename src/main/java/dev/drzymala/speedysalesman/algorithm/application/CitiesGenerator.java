@@ -2,7 +2,6 @@ package dev.drzymala.speedysalesman.algorithm.application;
 
 import dev.drzymala.speedysalesman.algorithm.application.port.Generator;
 import dev.drzymala.speedysalesman.algorithm.domain.City;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
