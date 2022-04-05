@@ -8,30 +8,51 @@
 
 <section class="section">
     <div class="container">
-
         <!-- Contact form -->
-        <form>
+        <form (ngSubmit)="submitForm()" #contactForm="ngForm">
             <!-- Name -->
             <div class="field">
                 <label class="label">Name</label>
-                <input type="text" name="name" class="input">
+                <input 
+                    type="text" 
+                    name="name" 
+                    class="input" 
+                    [(ngModel)]="name"
+                    #nameInput="ngModel"
+                    required>
+
+                <div class="help is-error" *ngIf="nameInput.invalid && nameInput.touched">
+                    Your name is required.
+                </div>
             </div>
             <!-- Email -->
             <div class="field">
                 <label class="label">Email</label>
-                <input type="email" name="email" class="input">
+                <input 
+                    type="email" 
+                    name="email" 
+                    class="input" 
+                    [(ngModel)]="email"
+                    #emailInput="ngModel"
+                    required
+                    email>
+
+                    <div class="help is-error" *ngIf="emailInput.invalid && emailInput.touched">
+                        Your emails is required and needs to be a valid email.
+                    </div>
             </div>
             <!-- Message -->
             <div class="field">
                 <label class="label">Your Message</label>
-                <textarea name="message" class="textarea"></textarea>
+                <textarea name="message" class="textarea" [(ngModel)]="message"></textarea>
             </div>
             <!-- Submit button -->
-            <button type="submit" class="button is-large is-warning">
+            <button 
+                type="submit" 
+                class="button is-large is-warning"
+                [disabled]="contactForm.invalid">
                 Send!
             </button>
-            
         </form>
-
     </div>
 </section>
