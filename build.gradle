@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.4'
+    id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -23,12 +23,12 @@ dependencies {
     implementation 'org.thymeleaf:thymeleaf:3.0.15.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.6.6'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
-    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.6'
     // https://mvnrepository.com/artifact/com.opencsv/opencsv
     implementation 'com.opencsv:opencsv:5.6'
 }
