@@ -9,7 +9,7 @@ const routes: Routes = [
     component: UserListComponent
   },
   {
-    path: 'username',
+    path: ':username',
     component: UserSingleComponent
   }
 ];
