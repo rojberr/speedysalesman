@@ -10,11 +10,11 @@
 <section class="section">
   <div class="container">
     <!-- Send data form -->
-    <form (ngSubmit)="submitForm()" #contactForm="ngForm">
+    <form (ngSubmit)="sendData()" #contactForm="ngForm">
       <!-- Data -->
       <div class="field">
         <label class="label">Your Data</label>
-        <textarea name="data" type="text" class="textarea" [(ngModel)]="data" #dataInput="ngModel" required>
+        <textarea name="data" type="text" class="textarea is-large" [(ngModel)]="data" #dataInput="ngModel" required>
         </textarea>
 
         <div class="help is-error" *ngIf="dataInput.invalid && dataInput.touched">

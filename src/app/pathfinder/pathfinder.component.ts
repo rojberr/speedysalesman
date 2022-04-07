@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PathfinderService } from '../core/services/pathfinder.service';
 
 @Component({
   selector: 'app-pathfinder',
@@ -8,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class PathfinderComponent implements OnInit {
   data: any;
 
-  constructor() {}
+  constructor(private input: PathfinderService) {}
 
   ngOnInit(): void {}
 
-  submitForm() {
+  sendData() {
     const message = `My name is ${this.data}`;
     // grab all the firlds and their values
     // const nameInput = document.querySelector('input[name=name]').value;
     alert(message);
+
+    this.input.post(this.data).subscribe((result: any) => {
+      console.warn(result);
+    });
   }
 }
