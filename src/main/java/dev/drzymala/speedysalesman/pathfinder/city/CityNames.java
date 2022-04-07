@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.problemsolver.generators.enums;
+package dev.drzymala.speedysalesman.pathfinder.city;
 
 public enum CityNames {
     Abrantes,
