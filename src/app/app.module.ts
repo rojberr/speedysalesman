@@ -7,8 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
-import { UserService } from './core/services/user.service';
 import { CoreModule } from './core/core.module';
+import { PathfinderComponent } from './pathfinder/pathfinder.component';
 
 const routes: Routes = [
   // {
@@ -23,9 +23,17 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent
   },
+    {
+    path: 'pathfinder',
+    component: PathfinderComponent
+  },
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
@@ -33,7 +41,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    PathfinderComponent
   ],
   imports: [
     BrowserModule,
