@@ -1,1 +1,30 @@
-<p>pathfinder works!</p>
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Give me data!</h1>
+      <p class="subtitle"> I'll find you the shortest path! </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Send data form -->
+    <form (ngSubmit)="submitForm()" #contactForm="ngForm">
+      <!-- Data -->
+      <div class="field">
+        <label class="label">Your Data</label>
+        <textarea name="data" type="text" class="textarea" [(ngModel)]="data" #dataInput="ngModel" required>
+        </textarea>
+
+        <div class="help is-error" *ngIf="dataInput.invalid && dataInput.touched">
+          Data is required.
+        </div>
+      </div>
+      <!-- Submit button -->
+      <button type="submit" class="button is-large is-warning" [disabled]="contactForm.invalid">
+        Send!
+      </button>
+    </form>
+  </div>
+</section>
