@@ -11,30 +11,28 @@ import { CoreModule } from './core/core.module';
 import { PathfinderComponent } from './pathfinder/pathfinder.component';
 
 const routes: Routes = [
-  // {
-  //   path: '', redirectTo: '/home', pathMatch: 'full'
-  // },
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
   },
-    {
+  {
     path: 'pathfinder',
-    component: PathfinderComponent
+    component: PathfinderComponent,
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+    loadChildren: () =>
+      import('./users/users.module').then((m) => m.UsersModule),
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
@@ -42,16 +40,16 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     ContactComponent,
-    PathfinderComponent
+    PathfinderComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    CoreModule
+    CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
