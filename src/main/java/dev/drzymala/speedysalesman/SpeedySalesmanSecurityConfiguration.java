@@ -15,9 +15,8 @@ public class SpeedySalesmanSecurityConfiguration extends WebSecurityConfigurerAd
 
         http
                 .authorizeRequests()
-                .mvcMatchers(HttpMethod.GET, "/error", "/").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/error", "/swagger-ui.html","/").permitAll()
                 .mvcMatchers(HttpMethod.POST, "/pathfinder", "/register").permitAll()
-                .anyRequest().authenticated()
                 .and()
                 .httpBasic();
 
