@@ -2,22 +2,15 @@ package dev.drzymala.speedysalesman.whatever.city;
 
 import lombok.Value;
 
-import java.util.Random;
-
 @Value
 public class City {
 
     Long DIGIT = 0L;
     Long BOUND = 900000L;
-    Long x;
-    Long y;
+    int x;
+    int y;
 
-    public City() {
-        this.x = new Random().nextLong(BOUND) + DIGIT;
-        this.y = new Random().nextLong(BOUND) + DIGIT;
-    }
-
-    public City(Long x, Long y) {
+    public City(int x, int y) {
         this.x = x;
         this.y = y;
     }
