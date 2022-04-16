@@ -23,10 +23,8 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         List<T> cities = (List<T>) dataParser.readCities(data);
 
         // run the algo
-        List<Integer> list = new ArrayList<>();
-        list.add(2);
 
         // return the calculations
-        return FindPathResponse.success(list);
+        return FindPathResponse.success(cities);
     }
 }

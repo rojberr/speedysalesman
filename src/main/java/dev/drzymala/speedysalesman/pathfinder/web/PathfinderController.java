@@ -21,12 +21,11 @@ public class PathfinderController<T> {
     public Object findPath(@RequestBody String data) {
 
         log.info("Received data " + data);
-//        return speedyService
-//                .findPath(data)
-//                .handle(
-//                        cities -> ResponseEntity.ok().build(),
-//                        error -> ResponseEntity.internalServerError().build()
-//                );
-        return new ResponseEntity<Object>("hehe", HttpStatus.OK);
+        return speedyService
+                .findPath(data)
+                .handle(
+                        cities -> new ResponseEntity(cities, HttpStatus.OK),
+                        error -> ResponseEntity.badRequest().body(error)
+                );
     }
 }
