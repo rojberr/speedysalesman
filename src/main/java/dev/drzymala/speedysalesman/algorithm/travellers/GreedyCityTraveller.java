@@ -38,14 +38,21 @@ public class GreedyCityTraveller<T> {
     private City getClosest(City city, List<City> list) {
 
         double distance = Double.MAX_VALUE;
-        City closestCity = new City(1,1, 1);
+        City closestCity = new City(1, 1, 1);
 
-        for (City value : list) {
-            if (city.distanceToCity(value) < distance) {
-                distance = city.distanceToCity(value);
-                closestCity = value;
+        for (City currentCity : list) {
+            if (getDistanceBetween(city, currentCity) < distance) {
+                distance = getDistanceBetween(city, currentCity);
+                closestCity = currentCity;
             }
         }
         return closestCity;
+    }
+
+    private double getDistanceBetween(City city1, City city2) {
+
+        double x = Math.abs(city1.getX() - city2.getX());
+        double y = Math.abs(city1.getY()) - city2.getY();
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 }
