@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PathfinderService {
-  apiUrl = 'https://speedysalesman-api.herokuapp.com/pathfinder';
+  apiUrl = 'http://localhost:8080/pathfinder';
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class PathfinderService {
   /**
    * Send request to generate the data
    */
-  generateData() {
-    return this.http.get(this.apiUrl + '/generate');
+  generateData(numberOfGenerated: number) {
+    return this.http.post(this.apiUrl + '/generate', numberOfGenerated);
   }
 }

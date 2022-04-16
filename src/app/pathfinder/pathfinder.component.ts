@@ -27,9 +27,10 @@ export class PathfinderComponent implements OnInit {
 
   generateData() {
     // GET() generated data from api
-    alert('You are generating data!');
+    var x = prompt('How much cities should I generate?', '25');
+    var numberOfGenerated = parseInt(x !== null ? x : '');
 
-    this.input.generateData().subscribe((result: any) => {
+    this.input.generateData(numberOfGenerated).subscribe((result: any) => {
       console.log(result);
     });
   }
