@@ -28,11 +28,11 @@ public class PathfinderController<T> {
                 );
     }
 
-    @GetMapping("/generate")
+    @PostMapping("/generate")
     @ResponseStatus(HttpStatus.OK)
-    public Object getGenerated() {
+    public Object getGenerated(@RequestBody int numberOfGenerated) {
 
-        log.info("Generating 25 cities");
-        return speedyService.generate(25);
+        log.info("Generating " + numberOfGenerated + " cities");
+        return speedyService.generate(numberOfGenerated);
     }
 }
