@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class CityTraveller<T> {
+public class CityTraveller<T> implements Traveller<City> {
 
     private final List<City> cityList;
     private List<City> shortestPath = new ArrayList<>();
