@@ -1,6 +1,6 @@
 package dev.drzymala.speedysalesman.pathfinder.application;
 
-import dev.drzymala.speedysalesman.algorithm.application.parsers.DataParser;
+import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
 import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.algorithm.application.parsers;
+package dev.drzymala.speedysalesman.algorithm.parsers;
 
 import dev.drzymala.speedysalesman.algorithm.city.City;
 import lombok.RequiredArgsConstructor;

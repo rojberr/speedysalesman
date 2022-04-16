@@ -1,7 +1,7 @@
 package dev.drzymala.speedysalesman.presenter.application;
 
-import dev.drzymala.speedysalesman.algorithm.application.port.Generator;
-import dev.drzymala.speedysalesman.algorithm.application.port.Traveller;
+import dev.drzymala.speedysalesman.algorithm.port.Generator;
+import dev.drzymala.speedysalesman.algorithm.port.Traveller;
 import dev.drzymala.speedysalesman.algorithm.domain.CityRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
