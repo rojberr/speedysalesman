@@ -8,6 +8,8 @@ public interface SpeedyServiceUseCase<T> {
 
     FindPathResponse findPath(String data);
 
+    void generate(int size);
+
     class FindPathResponse<T> extends Either<String, List<T>> {
         public FindPathResponse(boolean success, String left, List<T> right) {
             super(success, left, right);

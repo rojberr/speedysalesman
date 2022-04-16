@@ -27,4 +27,12 @@ public class PathfinderController<T> {
                         error -> ResponseEntity.badRequest().body(error)
                 );
     }
+
+    @GetMapping("/generate")
+    @ResponseStatus(HttpStatus.OK)
+    public void getGenerated(@RequestBody int size) {
+
+        log.info("Generating " + size + " cities");
+        speedyService.generate(size);
+    }
 }

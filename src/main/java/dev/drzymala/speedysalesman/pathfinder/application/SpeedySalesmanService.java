@@ -15,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
 
-
     @Override
     public FindPathResponse findPath(String data) {
 
@@ -32,4 +31,7 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         // return the calculations
         return FindPathResponse.success(result);
     }
+
+    @Override
+    public void generate(int size) {}
 }
