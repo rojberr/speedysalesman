@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.algorithm.city;
+package dev.drzymala.speedysalesman.algorithm.domain.city;
 
 public enum CityNames {
     Abrantes,

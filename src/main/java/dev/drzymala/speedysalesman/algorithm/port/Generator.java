@@ -1,10 +1,8 @@
-package dev.drzymala.speedysalesman.algorithm.port;
-
-import dev.drzymala.speedysalesman.algorithm.domain.City;
-
-import java.util.List;
-
-public interface Generator {
-
-    List<City> generate(Long numberOfObjects);
-}
+//package dev.drzymala.speedysalesman.algorithm.port;
+//
+//import java.util.List;
+//
+//public interface Generator<T> {
+//
+//    List<T> generate(Long numberOfObjects);
+//}

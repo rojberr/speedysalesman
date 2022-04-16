@@ -1,6 +1,6 @@
 package dev.drzymala.speedysalesman.algorithm.parsers;
 
-import dev.drzymala.speedysalesman.algorithm.city.City;
+import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;

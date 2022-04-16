@@ -1,6 +1,8 @@
 package dev.drzymala.speedysalesman.pathfinder.application;
 
+import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
+import dev.drzymala.speedysalesman.algorithm.travellers.GreedyCityTraveller;
 import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -19,12 +21,15 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
 
         // read the data
         DataParser dataParser = new DataParser();
-        List<T> cities = (List<T>) dataParser.readCities(data);
+        List<City> cities = dataParser.readCities(data);
+
+        // load the data to algo object
+        GreedyCityTraveller greedy = new GreedyCityTraveller(cities);
 
         // run the algo
-
+        List<T> result = greedy.findShortestPath();
 
         // return the calculations
-        return FindPathResponse.success(cities);
+        return FindPathResponse.success(result);
     }
 }

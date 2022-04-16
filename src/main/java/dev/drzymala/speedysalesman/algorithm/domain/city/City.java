@@ -1,12 +1,13 @@
-package dev.drzymala.speedysalesman.algorithm.city;
+package dev.drzymala.speedysalesman.algorithm.domain.city;
 
 import lombok.Value;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 
+@Slf4j
 @Value
 public class City {
 
-    Long DIGIT = 0L;
-    Long BOUND = 900000L;
     int x;
     int y;
 
@@ -15,7 +16,7 @@ public class City {
         this.y = y;
     }
 
-    public double distanceToCity(dev.drzymala.speedysalesman.algorithm.domain.City city) {
+    public double distanceToCity(City city) {
 
         double x = Math.abs(getX() - city.getX());
         double y = Math.abs(getY() - city.getY());

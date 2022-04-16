@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.algorithm.generators;
-
-public class Generator {
-}
+//package dev.drzymala.speedysalesman.algorithm.generators;
+//
+//public class Generator {
+//}
