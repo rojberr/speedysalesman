@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PathfinderService } from '../core/services/pathfinder.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pathfinder',
@@ -7,7 +8,7 @@ import { PathfinderService } from '../core/services/pathfinder.service';
   styleUrls: ['./pathfinder.component.css'],
 })
 export class PathfinderComponent implements OnInit {
-  data: any;
+  data: Observable<any[]> | undefined;
 
   constructor(private input: PathfinderService) {}
 
@@ -19,8 +20,8 @@ export class PathfinderComponent implements OnInit {
     // const nameInput = document.querySelector('input[name=name]').value;
     alert(message);
 
-    this.input.post(this.data).subscribe((result: any) => {
-      console.warn(result);
+    this.input.postData(this.data).subscribe((result: any) => {
+      console.log(result);
     });
   }
 }

@@ -21,10 +21,13 @@
           Data is required.
         </div>
       </div>
-      <!-- Submit button -->
-      <button type="submit" class="button is-large is-warning" [disabled]="contactForm.invalid">
-        Send!
-      </button>
+      <div class="buttons">
+        <!-- Submit button -->
+        <button type="submit" class="button is-large is-warning" [disabled]="contactForm.invalid">
+          Send!
+        </button>
+        <button class="button is-large is-info">Generate</button>
+      </div>
     </form>
   </div>
 </section>
