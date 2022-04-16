@@ -1,6 +1,6 @@
-package dev.drzymala.speedysalesman.whatever.generators;
+package dev.drzymala.speedysalesman.algorithm.generators;
 
-import dev.drzymala.speedysalesman.whatever.generators.port.Generator;
+import dev.drzymala.speedysalesman.algorithm.generators.port.Generator;
 
 import java.util.ArrayList;
 

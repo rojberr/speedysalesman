@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman;
+package dev.drzymala.speedysalesman.configuration;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;

@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -23,6 +22,7 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         List<T> cities = (List<T>) dataParser.readCities(data);
 
         // run the algo
+
 
         // return the calculations
         return FindPathResponse.success(cities);

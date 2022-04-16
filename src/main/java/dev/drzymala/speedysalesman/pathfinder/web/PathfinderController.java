@@ -1,7 +1,6 @@
 package dev.drzymala.speedysalesman.pathfinder.web;
 
 import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
-import dev.drzymala.speedysalesman.whatever.city.City;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

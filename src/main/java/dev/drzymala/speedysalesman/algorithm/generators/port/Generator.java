@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.whatever.generators.port;
+package dev.drzymala.speedysalesman.algorithm.generators.port;
 
 import java.util.ArrayList;
 

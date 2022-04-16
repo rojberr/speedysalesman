@@ -1,12 +1,11 @@
 package dev.drzymala.speedysalesman.algorithm.application.parsers;
 
-import dev.drzymala.speedysalesman.whatever.city.City;
+import dev.drzymala.speedysalesman.algorithm.city.City;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class DataParser {
