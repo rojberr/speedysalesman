@@ -16,9 +16,15 @@ export class PathfinderService {
    * 1 x y
    * 2 x y
    * ...
-   *
    */
   postData(data: any) {
     return this.http.post(this.apiUrl, data, { responseType: 'text' });
+  }
+
+  /**
+   * Send request to generate the data
+   */
+  generateData() {
+    return this.http.get(this.apiUrl + '/generate');
   }
 }

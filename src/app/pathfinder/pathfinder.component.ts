@@ -16,11 +16,20 @@ export class PathfinderComponent implements OnInit {
 
   sendData() {
     const message = `My name is ${this.data}`;
-    // grab all the firlds and their values
+    // grab all the fields and their values
     // const nameInput = document.querySelector('input[name=name]').value;
     alert(message);
 
     this.input.postData(this.data).subscribe((result: any) => {
+      console.log(result);
+    });
+  }
+
+  generateData() {
+    // GET() generated data from api
+    alert('You are generating data!');
+
+    this.input.generateData().subscribe((result: any) => {
       console.log(result);
     });
   }
