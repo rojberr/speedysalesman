@@ -30,9 +30,9 @@ public class PathfinderController<T> {
 
     @GetMapping("/generate")
     @ResponseStatus(HttpStatus.OK)
-    public void getGenerated(@RequestBody int size) {
+    public Object getGenerated() {
 
-        log.info("Generating " + size + " cities");
-        speedyService.generate(size);
+        log.info("Generating 25 cities");
+        return speedyService.generate(25);
     }
 }

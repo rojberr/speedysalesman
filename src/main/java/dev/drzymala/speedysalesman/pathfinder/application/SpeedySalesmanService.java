@@ -9,6 +9,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Log4j2
 @Service
@@ -33,5 +35,8 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
     }
 
     @Override
-    public void generate(int size) {}
+    public List<City> generate(int numberOfGenerated) {
+
+            return Stream.generate(City::new).limit(numberOfGenerated).collect(Collectors.toList());
+    }
 }
