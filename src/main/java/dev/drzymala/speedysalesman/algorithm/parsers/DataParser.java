@@ -16,7 +16,7 @@ public class DataParser {
 
         List<City> cities = new ArrayList<>();
         for (int i = 1; i < numbers.length; i = i + 3) {
-            cities.add(new City(numbers[i + 1], numbers[i + 2]));
+            cities.add(new City(numbers[i], numbers[i + 1], numbers[i + 2]));
         }
         return cities;
     }

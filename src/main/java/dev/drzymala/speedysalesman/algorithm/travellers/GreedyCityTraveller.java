@@ -38,7 +38,7 @@ public class GreedyCityTraveller<T> {
     private City getClosest(City city, List<City> list) {
 
         double distance = Double.MAX_VALUE;
-        City closestCity = new City(1, 1);
+        City closestCity = new City(1,1, 1);
 
         for (City value : list) {
             if (city.distanceToCity(value) < distance) {
