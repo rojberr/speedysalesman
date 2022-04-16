@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class GreedyCityTraveller<T> {
+public class CityTraveller<T> {
 
     private final List<City> cityList;
     private List<City> shortestPath = new ArrayList<>();
 
-    public List<City> findShortestPath() {
+    public List<City> findGreedyPath() {
 
         requireNotEmpty(cityList);
         shortestPath.add(0, cityList.get(0));
