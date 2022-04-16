@@ -10,7 +10,7 @@
 <section class="section">
   <div class="container">
     <!-- Send data form -->
-    <form (ngSubmit)="sendData()" #contactForm="ngForm">
+    <form #contactForm="ngForm">
       <!-- Data -->
       <div class="field">
         <label class="label">Your Data</label>
@@ -23,10 +23,10 @@
       </div>
       <div class="buttons">
         <!-- Submit button -->
-        <button type="submit" class="button is-large is-warning" [disabled]="contactForm.invalid">
+        <button (click)="sendData()" class="button is-large is-warning" [disabled]="contactForm.invalid">
           Send!
         </button>
-        <button class="button is-large is-info">Generate</button>
+        <button class="button is-large is-info" (click)="generateData()">Generate</button>
       </div>
     </form>
   </div>
