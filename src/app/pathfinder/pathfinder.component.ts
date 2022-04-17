@@ -31,7 +31,7 @@ export class PathfinderComponent implements OnInit {
     var numberOfGenerated = parseInt(x !== null ? x : '');
 
     this.input.generateData(numberOfGenerated).subscribe((result: any) => {
-      console.log(result);
+      console.log(JSON.stringify(result));
     });
   }
 }
