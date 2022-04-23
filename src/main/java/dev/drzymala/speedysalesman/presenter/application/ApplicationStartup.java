@@ -24,7 +24,7 @@ public class ApplicationStartup implements CommandLineRunner {
         String yesOrNo = reader.nextLine();
 
         if ("no".equalsIgnoreCase(yesOrNo) || "n".equalsIgnoreCase(yesOrNo)) {
-            return;
+            return null;
         }
     }
 }
