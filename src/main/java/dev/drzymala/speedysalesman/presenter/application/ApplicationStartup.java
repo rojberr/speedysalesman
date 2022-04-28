@@ -18,13 +18,17 @@ public class ApplicationStartup implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+        if (!promptConsoleUse()) return;
+    }
+
+    private boolean promptConsoleUse() {
+
         Scanner reader = new Scanner(System.in);
-
-        System.out.printf("Do you want to use the console? yes/no");
-        String yesOrNo = reader.nextLine();
-
-        if ("no".equalsIgnoreCase(yesOrNo) || "n".equalsIgnoreCase(yesOrNo)) {
-            return null;
+        while (true) {
+            System.out.printf("\n\nDo you want to use the console? yes / no \n");
+            String yesOrNo = reader.nextLine();
+            if ("no".equalsIgnoreCase(yesOrNo)) return false;
+            if ("yes".equalsIgnoreCase(yesOrNo)) return true;
         }
     }
 }
