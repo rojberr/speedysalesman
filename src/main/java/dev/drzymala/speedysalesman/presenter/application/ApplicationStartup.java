@@ -2,12 +2,16 @@ package dev.drzymala.speedysalesman.presenter.application;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.FindPathResponse;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,6 +27,8 @@ public class ApplicationStartup implements CommandLineRunner {
 
         if (!promptConsoleUse()) return;
         generateFile();
+        String input = readInputFile();
+        FindPathResponse result = speedyService.findPath(input);
     }
 
     private boolean promptConsoleUse() {
@@ -48,29 +54,19 @@ public class ApplicationStartup implements CommandLineRunner {
         Writer writer = new Writer();
         writer.write(list);
     }
+
+    @SneakyThrows
+    public String readInputFile() {
+
+        Path inputfile = Paths.get("input.txt");
+        return Files.readAllLines(inputfile)
+                .toString()
+                .replace(",\s", "\n")
+                .replaceAll("[\\[\\]]", "");
+    }
 }
 
 
-//    private void scanFile() {
-//
-//        Scanner reader = new Scanner(System.in);
-//        System.out.println("\n Which file would you like to scan?");
-//        String filename = reader.nextLine();
-////        FileReader fileReader = new FileReader();
-////        fileReader.readFile(filename);
-//        try {
-//            Path path = Path.of(filename);
-//            String input = Files.readString(path);
-//            FindPathResponse result = speedyService.findPath(input);
-//            result.toString();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//
-//
-//
 //    FILE READER
 //
 //	package dev.drzymala.speedysalesman.fileoperators;
