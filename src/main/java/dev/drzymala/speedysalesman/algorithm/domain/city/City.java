@@ -26,6 +26,6 @@ public class City {
     @Override
     public String toString() {
 
-        return "Id: " + id + " X: " + x + " Y: " + y;
+        return id + " " + x + " " + y + "\n";
     }
 }
