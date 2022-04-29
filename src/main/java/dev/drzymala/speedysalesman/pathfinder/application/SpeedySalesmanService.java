@@ -28,7 +28,11 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         CityTraveller greedy = new CityTraveller(cities);
 
         // run the algo
+        long startTime = System.nanoTime();
         List<T> result = greedy.findGreedyPath();
+        long endTime = System.nanoTime();
+        long totalTime = endTime - startTime;
+        System.out.println(totalTime / 1_000_000L);
 
         // return the calculations
         return FindPathResponse.success(result);
