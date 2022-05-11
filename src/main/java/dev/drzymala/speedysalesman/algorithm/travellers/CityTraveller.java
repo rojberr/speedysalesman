@@ -1,16 +1,19 @@
 package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Getter
 public class CityTraveller<T> implements Traveller<City> {
 
     private final List<City> cityList;
     private List<City> shortestPath = new ArrayList<>();
+    private double totalDistance = 0.0;
 
     public List<City> findGreedyPath() {
 
@@ -46,6 +49,7 @@ public class CityTraveller<T> implements Traveller<City> {
                 closestCity = currentCity;
             }
         }
+        totalDistance = totalDistance + getDistanceBetween(city, closestCity);
         return closestCity;
     }
 

@@ -1,9 +1,11 @@
 package dev.drzymala.speedysalesman.pathfinder.application.port;
 
 import dev.drzymala.speedysalesman.commons.Either;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 
+@AllArgsConstructor
 public interface SpeedyServiceUseCase<T> {
 
     FindPathResponse findPath(String data);

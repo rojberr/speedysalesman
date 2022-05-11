@@ -33,14 +33,14 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         long endTime = System.nanoTime();
         long totalTime = endTime - startTime;
         System.out.println(totalTime / 1_000_000L);
-
+        //FIXME: omg
         // return the calculations
-        return FindPathResponse.success(result);
+        return new FindPathResponse(totalTime, result);
     }
 
     @Override
     public List<City> generate(int numberOfGenerated) {
 
-            return Stream.generate(City::new).limit(numberOfGenerated).collect(Collectors.toList());
+        return Stream.generate(City::new).limit(numberOfGenerated).collect(Collectors.toList());
     }
 }
