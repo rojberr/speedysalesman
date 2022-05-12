@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.FindPathResponse.success;
+
 @Log4j2
 @Service
 @RequiredArgsConstructor
@@ -31,11 +33,8 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         long startTime = System.nanoTime();
         List<T> result = greedy.findGreedyPath();
         long endTime = System.nanoTime();
-        long totalTime = endTime - startTime;
-        System.out.println(totalTime / 1_000_000L);
-        //FIXME: omg
-        // return the calculations
-        return new FindPathResponse(totalTime, result);
+        long totalTimeMili = (endTime - startTime) / 1_000_000L;
+        return success(result, totalTimeMili);
     }
 
     @Override

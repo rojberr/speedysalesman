@@ -46,7 +46,7 @@ public class ApplicationStartup implements CommandLineRunner {
     private void generateFile() {
 
         Scanner reader = new Scanner(System.in);
-        System.out.println("\n How big file would you like to generate? ");
+        System.out.println("\nHow big file would you like to generate? ");
         int size = reader.nextInt();
 
         List<City> list = speedyService.generate(size);

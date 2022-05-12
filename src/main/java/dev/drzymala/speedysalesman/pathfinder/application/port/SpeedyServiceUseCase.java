@@ -11,16 +11,27 @@ public interface SpeedyServiceUseCase<T> {
     List<T> generate(int size);
 
     class FindPathResponse<T> extends Either<String, List<T>> {
-        public FindPathResponse(boolean success, String left, List<T> right) {
+
+        long totalTimeMili;
+
+        public FindPathResponse(boolean success, String left, List<T> right, long totalTimeMili) {
             super(success, left, right);
+            this.totalTimeMili = totalTimeMili;
         }
 
-        public static FindPathResponse success(List list) {
-            return new FindPathResponse(true, null, list);
+        public static FindPathResponse success(List list, long totalTimeMili) {
+
+            return new FindPathResponse(true, null, list, totalTimeMili);
         }
 
         public static FindPathResponse failure(String error) {
-            return new FindPathResponse(false, error, null);
+
+            return new FindPathResponse(false, error, null, 0L);
+        }
+
+        @Override
+        public String toString() {
+            return super.getRight() + "\n" + totalTimeMili + " miliseconds";
         }
     }
 }
