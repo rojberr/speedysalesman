@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface Traveller<T> {
 
-    FindGreedyPathResponse findGreedyPath();
+    FindPathResponse findGreedyPath();
+
+    FindPathResponse findAntPath();
 
     @Data
     @AllArgsConstructor
-    class FindGreedyPathResponse {
+    class FindPathResponse {
         long totalTimeNano;
         double totalDistance;
         List<?> shortestPath;

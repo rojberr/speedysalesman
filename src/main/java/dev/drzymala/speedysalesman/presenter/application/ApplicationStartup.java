@@ -2,7 +2,7 @@ package dev.drzymala.speedysalesman.presenter.application;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
-import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.FindPathResponse;
+import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.OptimalPathResponse;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class ApplicationStartup implements CommandLineRunner {
         if (!promptConsoleUse()) return;
         generateFile();
         String input = readInputFile();
-        FindPathResponse result = speedyService.findPath(input);
+        OptimalPathResponse result = speedyService.findPath(input);
     }
 
     private boolean promptConsoleUse() {

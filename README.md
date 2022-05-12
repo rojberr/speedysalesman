@@ -24,7 +24,7 @@ At this moment you can use:
 - for greedy algorithm approach:
 > /pathfinder 
 
-- ... and many more following ^^
+- ... many more will follow ^^
 
 ## b) Generate input data
 

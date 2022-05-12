@@ -1,14 +1,11 @@
 package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
-import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.*;
 
 @RequiredArgsConstructor
 @Getter
@@ -16,9 +13,13 @@ public class CityTraveller<T> implements Traveller<City> {
 
     private final List<City> cityList;
     private List<City> shortestPath = new ArrayList<>();
-    private double totalDistance = 0.0;
 
-    public FindGreedyPathResponse findGreedyPath() {
+    @Override
+    public FindPathResponse findAntPath() {
+        return null;
+    }
+
+    public FindPathResponse findGreedyPath() {
 
         requireNotEmpty(cityList);
         shortestPath.add(0, cityList.get(0));
@@ -30,13 +31,13 @@ public class CityTraveller<T> implements Traveller<City> {
         for (int i = 0; i < size; i++) {
 
             City closestCity = getClosest(shortestPath.get(i), cityList);
-            totalDistance = totalDistance + getDistanceBetween(shortestPath.get(i), closestCity);
+            totalDistance += 1 ;//getDistanceBetween(shortestPath.get(i), closestCity);
             shortestPath.add(closestCity);
             cityList.remove(closestCity);
         }
         long endTime = System.nanoTime();
         long totalTimeNano = (endTime - startTime);
-        return new FindGreedyPathResponse(totalTimeNano, totalDistance, shortestPath);
+        return new FindPathResponse(totalTimeNano, totalDistance, shortestPath);
     }
 
     private void requireNotEmpty(List<City> list) {
@@ -57,7 +58,6 @@ public class CityTraveller<T> implements Traveller<City> {
                 closestCity = currentCity;
             }
         }
-        totalDistance = totalDistance + getDistanceBetween(city, closestCity);
         return closestCity;
     }
 

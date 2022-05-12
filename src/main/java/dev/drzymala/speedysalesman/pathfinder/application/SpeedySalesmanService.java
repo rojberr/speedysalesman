@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindGreedyPathResponse;
-import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.FindPathResponse.success;
+import static dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
+import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.OptimalPathResponse.success;
 
 @Log4j2
 @Service
@@ -21,7 +21,7 @@ import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServ
 public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
 
     @Override
-    public FindPathResponse findPath(String data) {
+    public OptimalPathResponse findPath(String data) {
 
         // read the data
         DataParser dataParser = new DataParser();
@@ -31,7 +31,7 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         CityTraveller greedy = new CityTraveller(cities);
 
         // run the algo
-        FindGreedyPathResponse result = greedy.findGreedyPath();
+        FindPathResponse result = greedy.findGreedyPath();
         return success(result);
     }
 
