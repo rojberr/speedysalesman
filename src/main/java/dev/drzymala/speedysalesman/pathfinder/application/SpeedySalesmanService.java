@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindGreedyPathResponse;
 import static dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.FindPathResponse.success;
 
 @Log4j2
@@ -30,11 +31,8 @@ public class SpeedySalesmanService<T> implements SpeedyServiceUseCase {
         CityTraveller greedy = new CityTraveller(cities);
 
         // run the algo
-        long startTime = System.nanoTime();
-        List<T> result = greedy.findGreedyPath();
-        long endTime = System.nanoTime();
-        long totalTimeMili = (endTime - startTime) / 1_000_000L;
-        return success(result, totalTimeMili);
+        FindGreedyPathResponse result = greedy.findGreedyPath();
+        return success(result);
     }
 
     @Override
