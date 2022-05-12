@@ -15,9 +15,9 @@ public class PathfinderController<T> {
 
     private final SpeedyServiceUseCase speedyService;
 
-    @PostMapping
+    @PostMapping("/greedy")
     @ResponseStatus(HttpStatus.CREATED)
-    public Object findPath(@RequestBody String data) {
+    public Object findGreedyPath(@RequestBody String data) {
 
         log.info("Received data " + data);
         return speedyService
@@ -26,6 +26,14 @@ public class PathfinderController<T> {
                         cities -> new ResponseEntity(cities, HttpStatus.OK),
                         error -> ResponseEntity.badRequest().body(error)
                 );
+    }
+
+    @PostMapping("/ant")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Object findAntPath(@RequestBody String data) {
+
+        log.info("Received data " + data);
+        return null;
     }
 
     @PostMapping("/generate")
