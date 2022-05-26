@@ -8,8 +8,6 @@ public interface AntServiceUseCase<T> {
 
     OptimalPathResponse findPath(String data);
 
-    List<T> generate(int size);
-
     class OptimalPathResponse<T> extends Either<String, Object> {
 
         public OptimalPathResponse(boolean success, String left, Object right) {

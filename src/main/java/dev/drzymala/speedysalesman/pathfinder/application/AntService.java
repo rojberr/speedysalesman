@@ -12,11 +12,9 @@ public class AntService implements AntServiceUseCase {
 
     @Override
     public OptimalPathResponse findPath(String data) {
-        return null;
-    }
 
-    @Override
-    public List generate(int size) {
+//        AntColonyOptimization antColony = new AntColonyOptimization(21);
+//        antColony.startAntOptimization();
         return null;
     }
 }
