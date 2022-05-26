@@ -16,6 +16,7 @@ public class CityTraveller<T> implements Traveller<City> {
 
     @Override
     public FindPathResponse findAntPath() {
+
         return null;
     }
 

@@ -1,8 +1,8 @@
 package dev.drzymala.speedysalesman.presenter.application;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
-import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
-import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase.OptimalPathResponse;
+import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase.OptimalPathResponse;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +20,7 @@ import java.util.Scanner;
 @AllArgsConstructor
 public class ApplicationStartup implements CommandLineRunner {
 
-    SpeedyServiceUseCase speedyService;
+    GreedyServiceUseCase speedyService;
 
     @Override
     public void run(String... args) {

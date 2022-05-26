@@ -1,6 +1,7 @@
 package dev.drzymala.speedysalesman.pathfinder.web;
 
-import dev.drzymala.speedysalesman.pathfinder.application.port.SpeedyServiceUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.AntServiceUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -13,14 +14,15 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class PathfinderController<T> {
 
-    private final SpeedyServiceUseCase speedyService;
+    private final GreedyServiceUseCase greedyService;
+    private final AntServiceUseCase antService;
 
     @PostMapping("/greedy")
     @ResponseStatus(HttpStatus.CREATED)
     public Object findGreedyPath(@RequestBody String data) {
 
         log.info("Received data " + data);
-        return speedyService
+        return greedyService
                 .findPath(data)
                 .handle(
                         cities -> new ResponseEntity(cities, HttpStatus.OK),
@@ -33,7 +35,7 @@ public class PathfinderController<T> {
     public Object findAntPath(@RequestBody String data) {
 
         log.info("Received data " + data);
-        return null;
+        return antService.findPath("aa");
     }
 
     @PostMapping("/generate")
@@ -41,6 +43,6 @@ public class PathfinderController<T> {
     public Object getGenerated(@RequestBody int numberOfGenerated) {
 
         log.info("Generating " + numberOfGenerated + " cities");
-        return speedyService.generate(numberOfGenerated);
+        return greedyService.generate(numberOfGenerated);
     }
 }
