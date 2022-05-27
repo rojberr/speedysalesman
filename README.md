@@ -1,6 +1,6 @@
 # speedysalesman
 
-This is my assigment for Computational Optimization course.  
+This is my assignment for Computational Optimization course.  
 
 Here you can find metaheuristik solutions for travelling salesman problem. 
 
