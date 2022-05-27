@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public class CityTraveller<T> implements Traveller<City> {
 
     private final List<City> cityList;
@@ -69,3 +69,4 @@ public class CityTraveller<T> implements Traveller<City> {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 }
+

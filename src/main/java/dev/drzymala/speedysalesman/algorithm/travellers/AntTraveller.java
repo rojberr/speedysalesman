@@ -1,12 +1,14 @@
 package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.ants.Ant;
+import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 
 import java.util.*;
 import java.util.stream.IntStream;
 
 public class AntTraveller {
 
+    private final List<City> cityList;
     private double c = 1.0;
     private double alpha = 1;
     private double beta = 5;
@@ -31,8 +33,23 @@ public class AntTraveller {
     private double bestTourLength;
 
     public AntTraveller(int noOfCities) {
+
+        cityList = null;
         graph = generateRandomMatrix(noOfCities);
         numberOfCities = graph.length;
+        numberOfAnts = (int) (numberOfCities * antFactor);
+
+        trails = new double[numberOfCities][numberOfCities];
+        probabilities = new double[numberOfCities];
+        IntStream.range(0, numberOfAnts)
+                .forEach(i -> ants.add(new Ant(numberOfCities)));
+    }
+
+    public AntTraveller(List<City> cities) {
+
+        this.cityList = cities;
+        this.numberOfCities = cities.size();
+        this.graph = new double[numberOfCities][numberOfCities];
         numberOfAnts = (int) (numberOfCities * antFactor);
 
         trails = new double[numberOfCities][numberOfCities];

@@ -35,7 +35,7 @@ public class PathfinderController<T> {
     public Object findAntPath(@RequestBody String data) {
 
         log.info("Received data " + data);
-        return antService.findPath("aa");
+        return antService.findPath(data);
     }
 
     @PostMapping("/generate")
