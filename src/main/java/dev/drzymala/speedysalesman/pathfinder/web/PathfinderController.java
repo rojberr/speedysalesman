@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 public class PathfinderController<T> {
 
     private final GreedyServiceUseCase greedyService;
-    private final AntServiceUseCase antService;
 
     @PostMapping("/greedy")
     @ResponseStatus(HttpStatus.CREATED)
@@ -28,14 +27,6 @@ public class PathfinderController<T> {
                         cities -> new ResponseEntity(cities, HttpStatus.OK),
                         error -> ResponseEntity.badRequest().body(error)
                 );
-    }
-
-    @PostMapping("/ant")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Object findAntPath(@RequestBody String data) {
-
-        log.info("Received data " + data);
-        return antService.findPath(data);
     }
 
     @PostMapping("/generate")
