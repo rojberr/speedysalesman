@@ -3,6 +3,7 @@ package dev.drzymala.speedysalesman.pathfinder.application;
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
 import dev.drzymala.speedysalesman.algorithm.travellers.AntTraveller;
+import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
 import dev.drzymala.speedysalesman.pathfinder.application.port.AntServiceUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,8 @@ public class AntService implements AntServiceUseCase {
 
         // load the data to algo object
         AntTraveller antTraveller = new AntTraveller(cities);
-        long startTime = System.nanoTime();
-        antTraveller.startAntOptimization();
-        long endTime = System.nanoTime();
-        long totalTimeNano = (endTime - startTime);
-        System.out.println("TOTAL TIME" + totalTimeNano);
+        FindPathResponse result = antTraveller.startAntOptimization();
 
-        return null;
+        return OptimalPathResponse.success(result);
     }
 }

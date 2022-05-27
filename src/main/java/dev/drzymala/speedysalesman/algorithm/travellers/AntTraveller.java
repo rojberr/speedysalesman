@@ -2,6 +2,11 @@ package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.ants.Ant;
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
+import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Value;
 
 import java.util.*;
 import java.util.stream.IntStream;
@@ -72,18 +77,24 @@ public class AntTraveller {
     /**
      * Perform ant optimization
      */
-    public void startAntOptimization() {
-        IntStream.rangeClosed(1, 100)
+    public FindPathResponse startAntOptimization() {
+        long startTime = System.nanoTime();
+        IntStream.rangeClosed(1, 40)
                 .forEach(i -> {
                     System.out.println("Attempt #" + i);
                     solve();
                 });
+        SolveResponse result = solve();
+        long endTime = System.nanoTime();
+        long totalTimeNano = (endTime - startTime);
+
+        return new FindPathResponse(totalTimeNano, result.getBestTourLength(), Collections.singletonList(result.getBestTourOrder()));
     }
 
     /**
      * Use this method to run the main logic
      */
-    public int[] solve() {
+    public SolveResponse solve() {
         setupAnts();
         clearTrails();
         IntStream.range(0, maxIterations)
@@ -94,7 +105,7 @@ public class AntTraveller {
                 });
         System.out.println("Best tour length: " + (bestTourLength - numberOfCities));
         System.out.println("Best tour order: " + Arrays.toString(bestTourOrder));
-        return bestTourOrder.clone();
+        return new SolveResponse(bestTourOrder.clone(), bestTourLength - numberOfCities);
     }
 
     /**
@@ -215,5 +226,13 @@ public class AntTraveller {
                             .forEach(j -> trails[i][j] = c);
                 });
     }
+
+    @Value
+    class SolveResponse {
+
+        int[] bestTourOrder;
+        double bestTourLength;
+    }
+
 
 }
