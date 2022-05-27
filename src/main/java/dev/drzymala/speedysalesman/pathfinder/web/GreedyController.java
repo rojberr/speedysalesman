@@ -27,12 +27,4 @@ public class GreedyController<T> {
                         error -> ResponseEntity.badRequest().body(error)
                 );
     }
-
-    @PostMapping("/generate")
-    @ResponseStatus(HttpStatus.OK)
-    public Object getGenerated(@RequestBody int numberOfGenerated) {
-
-        log.info("Generating " + numberOfGenerated + " cities");
-        return greedyService.generate(numberOfGenerated);
-    }
 }
