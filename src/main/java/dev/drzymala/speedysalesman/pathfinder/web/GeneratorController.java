@@ -1,6 +1,6 @@
 package dev.drzymala.speedysalesman.pathfinder.web;
 
-import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.GenerateUseCase;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class GeneratorController {
 
-    private final GreedyServiceUseCase greedyService;
+    private final GenerateUseCase generatorService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public Object getGenerated(@RequestBody int numberOfGenerated) {
 
         log.info("Generating " + numberOfGenerated + " cities");
-        return greedyService.generate(numberOfGenerated);
+        return generatorService.generate(numberOfGenerated);
     }
 }

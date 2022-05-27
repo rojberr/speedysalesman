@@ -2,9 +2,7 @@ package dev.drzymala.speedysalesman.pathfinder.application.port;
 
 import dev.drzymala.speedysalesman.commons.Either;
 
-import java.util.List;
-
-public interface AntServiceUseCase<T> {
+public interface FindPathUseCase<T> {
 
     OptimalPathResponse findPath(String data);
 

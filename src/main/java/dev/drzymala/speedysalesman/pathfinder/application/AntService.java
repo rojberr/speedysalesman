@@ -4,15 +4,19 @@ import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
 import dev.drzymala.speedysalesman.algorithm.travellers.AntTraveller;
 import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
-import dev.drzymala.speedysalesman.pathfinder.application.port.AntServiceUseCase;
-import lombok.AllArgsConstructor;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Log4j2
 @Service
-@AllArgsConstructor
-public class AntService implements AntServiceUseCase {
+@Qualifier("antService")
+@RequiredArgsConstructor
+public class AntService implements FindPathUseCase {
 
     @Override
     public OptimalPathResponse findPath(String data) {

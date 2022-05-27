@@ -1,18 +1,21 @@
 package dev.drzymala.speedysalesman.pathfinder.web;
 
-import dev.drzymala.speedysalesman.pathfinder.application.port.AntServiceUseCase;
-import lombok.AllArgsConstructor;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequestMapping("/ant")
 @RestController
-@AllArgsConstructor
 public class AntController {
 
-    private final AntServiceUseCase antService;
+    private final FindPathUseCase antService;
+
+    public AntController(@Qualifier("antService") FindPathUseCase antService) {
+        this.antService = antService;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

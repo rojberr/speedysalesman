@@ -1,11 +1,12 @@
 package dev.drzymala.speedysalesman.presenter.application;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
-import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase;
-import dev.drzymala.speedysalesman.pathfinder.application.port.GreedyServiceUseCase.OptimalPathResponse;
-import lombok.AllArgsConstructor;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.OptimalPathResponse;
+import dev.drzymala.speedysalesman.pathfinder.application.port.GenerateUseCase;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +18,16 @@ import java.util.Scanner;
 
 @Slf4j
 @Component
-@AllArgsConstructor
 public class ApplicationStartup implements CommandLineRunner {
 
-    GreedyServiceUseCase speedyService;
+    FindPathUseCase speedyService;
+    GenerateUseCase generatorService;
+
+    public ApplicationStartup(@Qualifier("greedyService") FindPathUseCase speedyService,
+                              GenerateUseCase generatorService) {
+        this.speedyService = speedyService;
+        this.generatorService = generatorService;
+    }
 
     @Override
     public void run(String... args) {
@@ -49,7 +56,7 @@ public class ApplicationStartup implements CommandLineRunner {
         System.out.println("\nHow big file would you like to generate? ");
         int size = reader.nextInt();
 
-        List<City> list = speedyService.generate(size);
+        List<City> list = generatorService.generate(size);
 
         Writer writer = new Writer();
         writer.write(list);
