@@ -22,11 +22,12 @@ public class AntService implements AntServiceUseCase {
 
         // load the data to algo object
         AntTraveller antTraveller = new AntTraveller(cities);
+        long startTime = System.nanoTime();
         antTraveller.startAntOptimization();
+        long endTime = System.nanoTime();
+        long totalTimeNano = (endTime - startTime);
+        System.out.println("TOTAL TIME" + totalTimeNano);
 
-
-        AntTraveller antColony = new AntTraveller(21);
-        antColony.startAntOptimization();
         return null;
     }
 }

@@ -23,6 +23,13 @@ public class City {
         this.y = ThreadLocalRandom.current().nextInt(100000);
     }
 
+    public double getDistanceTo(City city2) {
+
+        double x = Math.abs(this.getX() - city2.getX());
+        double y = Math.abs(this.getY()) - city2.getY();
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+    }
+
     @Override
     public String toString() {
 

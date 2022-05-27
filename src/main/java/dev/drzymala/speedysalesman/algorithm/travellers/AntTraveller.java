@@ -17,7 +17,7 @@ public class AntTraveller {
     private double antFactor = 0.8;
     private double randomFactor = 0.01;
 
-    private int maxIterations = 1000;
+    private int maxIterations = 10000;
 
     private int numberOfCities;
     private int numberOfAnts;
@@ -73,7 +73,7 @@ public class AntTraveller {
      * Perform ant optimization
      */
     public void startAntOptimization() {
-        IntStream.rangeClosed(1, 3)
+        IntStream.rangeClosed(1, 100)
                 .forEach(i -> {
                     System.out.println("Attempt #" + i);
                     solve();
@@ -156,6 +156,7 @@ public class AntTraveller {
         double pheromone = 0.0;
         for (int l = 0; l < numberOfCities; l++) {
             if (!ant.visited(l)) {
+                graph[i][l] = cityList.get(i).getDistanceTo(cityList.get(l));
                 pheromone += Math.pow(trails[i][l], alpha) * Math.pow(1.0 / graph[i][l], beta);
             }
         }
