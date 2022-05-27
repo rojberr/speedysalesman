@@ -1,5 +1,9 @@
 package dev.drzymala.speedysalesman.algorithm.domain.ants;
 
+import dev.drzymala.speedysalesman.algorithm.domain.city.City;
+
+import java.util.List;
+
 public class Ant {
 
     protected int trailSize;
@@ -21,10 +25,12 @@ public class Ant {
         return visited[i];
     }
 
-    public double trailLength(double graph[][]) {
-        double length = graph[trail[trailSize - 1]][trail[0]];
+    public double trailLength(double graph[][], List<City> cityList) {
+        double length = cityList.get(trailSize - 1).getDistanceTo(cityList.get(0));
+//        double length = graph[trail[trailSize - 1]][trail[0]];
         for (int i = 0; i < trailSize - 1; i++) {
-            length += graph[trail[i]][trail[i + 1]];
+//            length += graph[trail[i]][trail[i + 1]];
+            length += cityList.get(trail[i]).getDistanceTo(cityList.get(trail[i + 1]));
         }
         return length;
     }

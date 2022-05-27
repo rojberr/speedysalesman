@@ -3,9 +3,6 @@ package dev.drzymala.speedysalesman.algorithm.travellers;
 import dev.drzymala.speedysalesman.algorithm.domain.ants.Ant;
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
 import lombok.Value;
 
 import java.util.*;
@@ -79,7 +76,7 @@ public class AntTraveller {
      */
     public FindPathResponse startAntOptimization() {
         long startTime = System.nanoTime();
-        IntStream.rangeClosed(1, 40)
+        IntStream.rangeClosed(1, 500)
                 .forEach(i -> {
                     System.out.println("Attempt #" + i);
                     solve();
@@ -191,7 +188,7 @@ public class AntTraveller {
             }
         }
         for (Ant a : ants) {
-            double contribution = Q / a.trailLength(graph);
+            double contribution = Q / a.trailLength(graph, cityList);
             for (int i = 0; i < numberOfCities - 1; i++) {
                 trails[a.trail[i]][a.trail[i + 1]] += contribution;
             }
@@ -206,11 +203,11 @@ public class AntTraveller {
         if (bestTourOrder == null) {
             bestTourOrder = ants.get(0).trail;
             bestTourLength = ants.get(0)
-                    .trailLength(graph);
+                    .trailLength(graph, cityList);
         }
         for (Ant a : ants) {
-            if (a.trailLength(graph) < bestTourLength) {
-                bestTourLength = a.trailLength(graph);
+            if (a.trailLength(graph, cityList) < bestTourLength) {
+                bestTourLength = a.trailLength(graph, cityList);
                 bestTourOrder = a.trail.clone();
             }
         }

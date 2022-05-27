@@ -32,7 +32,7 @@ public class CityTraveller<T> implements Traveller<City> {
         for (int i = 0; i < size; i++) {
 
             City closestCity = getClosest(shortestPath.get(i), cityList);
-            totalDistance += 1 ;//getDistanceBetween(shortestPath.get(i), closestCity);
+            totalDistance += getDistanceBetween(shortestPath.get(i), closestCity);
             shortestPath.add(closestCity);
             cityList.remove(closestCity);
         }
