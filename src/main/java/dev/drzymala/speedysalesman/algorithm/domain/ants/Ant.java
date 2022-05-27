@@ -26,7 +26,7 @@ public class Ant {
     }
 
     public double trailLength(double graph[][], List<City> cityList) {
-        double length = cityList.get(trailSize - 1).getDistanceTo(cityList.get(0));
+        double length = cityList.get(trail[0]).getDistanceTo(cityList.get(trail[trailSize - 1]));
 //        double length = graph[trail[trailSize - 1]][trail[0]];
         for (int i = 0; i < trailSize - 1; i++) {
 //            length += graph[trail[i]][trail[i + 1]];

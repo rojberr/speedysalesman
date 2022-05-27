@@ -13,13 +13,13 @@ public class AntTraveller {
     private final List<City> cityList;
     private double c = 1.0;
     private double alpha = 1;
-    private double beta = 5;
+    private double beta = 12;
     private double evaporation = 0.5;
     private double Q = 500;
     private double antFactor = 0.8;
-    private double randomFactor = 0.01;
+    private double randomFactor = 0.05;
 
-    private int maxIterations = 10000;
+    private int maxIterations = 100;
 
     private int numberOfCities;
     private int numberOfAnts;
@@ -76,7 +76,7 @@ public class AntTraveller {
      */
     public FindPathResponse startAntOptimization() {
         long startTime = System.nanoTime();
-        IntStream.rangeClosed(1, 500)
+        IntStream.rangeClosed(1, 250)
                 .forEach(i -> {
                     System.out.println("Attempt #" + i);
                     solve();
