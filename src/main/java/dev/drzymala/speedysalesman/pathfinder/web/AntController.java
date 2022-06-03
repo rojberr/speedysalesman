@@ -21,7 +21,7 @@ public class AntController {
     @ResponseStatus(HttpStatus.CREATED)
     public Object findAntPath(@RequestBody String data) {
 
-        log.info("Received data " + data);
+        log.info("Received data ");
         return antService.findPath(data);
     }
 

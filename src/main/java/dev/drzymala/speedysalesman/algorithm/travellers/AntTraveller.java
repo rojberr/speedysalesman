@@ -74,7 +74,7 @@ public class AntTraveller {
     /**
      * Perform ant optimization
      */
-    public FoundPathResponse startAntOptimization() {
+    public FoundPathResponse<?> startAntOptimization() {
         long startTime = System.nanoTime();
         IntStream.rangeClosed(1, 250)
                 .forEach(i -> {
@@ -85,7 +85,10 @@ public class AntTraveller {
         long endTime = System.nanoTime();
         long totalTimeNano = (endTime - startTime);
 
-        return new FoundPathResponse(totalTimeNano, result.getBestTourLength(), Collections.singletonList(result.getBestTourOrder()));
+        List<City> shortestPathObjects = new ArrayList<>();
+        Arrays.stream(result.getBestTourOrder()).forEach(i -> shortestPathObjects.add(cityList.get(i)));
+
+        return new FoundPathResponse<>(totalTimeNano, result.getBestTourLength(), shortestPathObjects);
     }
 
     /**
