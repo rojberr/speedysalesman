@@ -8,7 +8,7 @@ import lombok.Value;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class AntTraveller {
+public class AntTraveller implements Traveller {
 
     private final List<City> cityList;
     private double c = 1.0;
@@ -74,7 +74,8 @@ public class AntTraveller {
     /**
      * Perform ant optimization
      */
-    public FoundPathResponse<?> startAntOptimization() {
+    @Override
+    public FoundPathResponse<?> findPath() {
         long startTime = System.nanoTime();
         IntStream.rangeClosed(1, 250)
                 .forEach(i -> {

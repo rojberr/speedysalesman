@@ -26,6 +26,6 @@ public class AntService implements FindPathUseCase {
 
         // load the data to algo object
         AntTraveller antTraveller = new AntTraveller(cities);
-        return antTraveller.startAntOptimization();
+        return antTraveller.findPath();
     }
 }

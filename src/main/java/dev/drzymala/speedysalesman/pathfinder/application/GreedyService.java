@@ -28,6 +28,6 @@ public class GreedyService<T> implements FindPathUseCase {
         CityTraveller greedy = new CityTraveller(cities);
 
         // run the algo
-        return greedy.findGreedyPath();
+        return greedy.findPath();
     }
 }

@@ -15,13 +15,7 @@ public class CityTraveller<T> implements Traveller<City> {
     private final List<City> cityList;
     private List<City> shortestPath = new ArrayList<>();
 
-    @Override
-    public FoundPathResponse findAntPath() {
-
-        return null;
-    }
-
-    public FoundPathResponse findGreedyPath() {
+    public FoundPathResponse findPath() {
 
         requireNotEmpty(cityList);
         shortestPath.add(0, cityList.get(0));

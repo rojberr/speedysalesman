@@ -4,7 +4,5 @@ import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.F
 
 public interface Traveller<T> {
 
-    FoundPathResponse findGreedyPath();
-
-    FoundPathResponse findAntPath();
+    FoundPathResponse findPath();
 }
