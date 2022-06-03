@@ -17,9 +17,6 @@ export class PathfinderComponent implements OnInit {
   ngOnInit(): void {}
 
   calculateGreedyPath() {
-    const message = `My name is ${this.data}`;
-    // grab all the fields and their values
-    // const nameInput = document.querySelector('input[name=name]').value;
     alert(message);
 
     this.input.postGreedyPath(this.data).subscribe((result: any) => {
