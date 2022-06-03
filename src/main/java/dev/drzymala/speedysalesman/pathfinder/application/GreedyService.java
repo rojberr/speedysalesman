@@ -2,7 +2,7 @@ package dev.drzymala.speedysalesman.pathfinder.application;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
-import dev.drzymala.speedysalesman.algorithm.travellers.CityTraveller;
+import dev.drzymala.speedysalesman.algorithm.travellers.GreedyTraveller;
 import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,7 +25,7 @@ public class GreedyService<T> implements FindPathUseCase {
         List<City> cities = dataParser.readCities(data);
 
         // load the data to algo object
-        CityTraveller greedy = new CityTraveller(cities);
+        GreedyTraveller greedy = new GreedyTraveller(cities);
 
         // run the algo
         return greedy.findPath();
