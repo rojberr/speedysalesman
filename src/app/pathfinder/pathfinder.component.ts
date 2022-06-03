@@ -16,14 +16,20 @@ export class PathfinderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  sendData() {
+  calculateGreedyPath() {
     const message = `My name is ${this.data}`;
     // grab all the fields and their values
     // const nameInput = document.querySelector('input[name=name]').value;
     alert(message);
 
-    this.input.postData(this.data).subscribe((result: any) => {
+    this.input.postGreedyPath(this.data).subscribe((result: any) => {
       console.log(result);
+      this.foundPathResponse = result;
+    });
+  }
+
+  calculateAntPath() {
+    this.input.postAntPath(this.data).subscribe((result: any) => {
       this.foundPathResponse = result;
     });
   }

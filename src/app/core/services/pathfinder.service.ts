@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PathfinderService {
-  apiUrl = 'https://speedysalesman-api.herokuapp.com/pathfinder/greedy';
+  greedyURL = 'https://speedysalesman-api.herokuapp.com/pathfinder/greedy';
+  antURL = 'https://speedysalesman-api.herokuapp.com/pathfinder/ant';
+  generateURL = 'https://speedysalesman-api.herokuapp.com/pathfinder/generate';
 
   constructor(private http: HttpClient) {}
 
@@ -17,14 +19,18 @@ export class PathfinderService {
    * 2 x y
    * ...
    */
-  postData(data: any) {
-    return this.http.post(this.apiUrl, data, { responseType: 'text' });
+  postGreedyPath(data: any) {
+    return this.http.post(this.greedyURL, data, { responseType: 'text' });
+  }
+
+  postAntPath(data: any) {
+    return this.http.post(this.antURL, data, { responseType: 'text' });
   }
 
   /**
    * Send request to generate the data
    */
   generateData(numberOfGenerated: number) {
-    return this.http.post(this.apiUrl + '/generate', numberOfGenerated);
+    return this.http.post(this.generateURL, numberOfGenerated);
   }
 }
