@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class PathfinderComponent implements OnInit {
   data: Observable<any[]> | undefined;
 
+  public foundPathResponse = [];
+
   constructor(private input: PathfinderService) {}
 
   ngOnInit(): void {}
@@ -22,6 +24,7 @@ export class PathfinderComponent implements OnInit {
 
     this.input.postData(this.data).subscribe((result: any) => {
       console.log(result);
+      this.findPathResponse = result;
     });
   }
 

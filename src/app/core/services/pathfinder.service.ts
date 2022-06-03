@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PathfinderService {
-  apiUrl = 'http://localhost:8080/pathfinder';
+  apiUrl = 'http://localhost:8080/greedy';
 
   constructor(private http: HttpClient) {}
 
   /**
    * Post the data in format:
-   * amount
+   * #amount
    * 1 x y
    * 2 x y
    * ...
