@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Slf4j
-@RequestMapping("/generate")
+@RequestMapping("/pathfinder/generate")
 @RestController
 @AllArgsConstructor
 public class GeneratorController {

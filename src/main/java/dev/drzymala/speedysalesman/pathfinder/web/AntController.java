@@ -13,7 +13,8 @@ public class AntController {
 
     private final FindPathUseCase antService;
 
-    public AntController(@Qualifier("antService") FindPathUseCase antService) {
+    public AntController(@Qualifier("antService")
+                         FindPathUseCase antService) {
         this.antService = antService;
     }
 

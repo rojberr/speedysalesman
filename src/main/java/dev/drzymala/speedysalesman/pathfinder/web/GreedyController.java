@@ -16,7 +16,8 @@ public class GreedyController<T> {
 
     private final FindPathUseCase greedyService;
 
-    public GreedyController(@Qualifier("greedyService") FindPathUseCase greedyService) {
+    public GreedyController(@Qualifier("greedyService")
+                            FindPathUseCase greedyService) {
         this.greedyService = greedyService;
     }
 
