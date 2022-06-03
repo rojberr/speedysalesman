@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PathfinderService {
-  apiUrl = 'https://speedysalesman.herokuapp.com/pathfinder/greedy';
+  apiUrl = 'https://speedysalesman-api.herokuapp.com/pathfinder/greedy';
 
   constructor(private http: HttpClient) {}
 
