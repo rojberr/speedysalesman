@@ -13,7 +13,7 @@ import java.util.List;
 import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse;
 
 @Slf4j
-@RequestMapping("/greedy")
+@RequestMapping("/pathfinder/greedy")
 @RestController
 public class GreedyController<T> {
 
