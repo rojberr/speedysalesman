@@ -24,7 +24,7 @@ export class PathfinderComponent implements OnInit {
 
     this.input.postData(this.data).subscribe((result: any) => {
       console.log(result);
-      this.findPathResponse = result;
+      this.foundPathResponse = result;
     });
   }
 
