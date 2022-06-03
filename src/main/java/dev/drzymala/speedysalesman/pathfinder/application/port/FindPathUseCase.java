@@ -4,22 +4,22 @@ import dev.drzymala.speedysalesman.commons.Either;
 
 public interface FindPathUseCase<T> {
 
-    OptimalPathResponse findPath(String data);
+    FoundPathResponse findPath(String data);
 
-    class OptimalPathResponse<T> extends Either<String, Object> {
+    class FoundPathResponse<T> extends Either<String, Object> {
 
-        public OptimalPathResponse(boolean success, String left, Object right) {
+        public FoundPathResponse(boolean success, String left, Object right) {
             super(success, left, right);
         }
 
-        public static OptimalPathResponse success(Object result) {
+        public static FoundPathResponse success(Object result) {
 
-            return new OptimalPathResponse(true, null, result);
+            return new FoundPathResponse(true, null, result);
         }
 
-        public static OptimalPathResponse failure(String error) {
+        public static FoundPathResponse failure(String error) {
 
-            return new OptimalPathResponse(false, error, null);
+            return new FoundPathResponse(false, error, null);
         }
     }
 }

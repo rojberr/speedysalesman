@@ -19,7 +19,7 @@ import java.util.List;
 public class AntService implements FindPathUseCase {
 
     @Override
-    public OptimalPathResponse findPath(String data) {
+    public FoundPathResponse findPath(String data) {
 
         // read the data
         DataParser dataParser = new DataParser();
@@ -29,6 +29,6 @@ public class AntService implements FindPathUseCase {
         AntTraveller antTraveller = new AntTraveller(cities);
         FindPathResponse result = antTraveller.startAntOptimization();
 
-        return OptimalPathResponse.success(result);
+        return FoundPathResponse.success(result);
     }
 }

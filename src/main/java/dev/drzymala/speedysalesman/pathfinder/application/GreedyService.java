@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
-import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.OptimalPathResponse.success;
+import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse.success;
 
 @Log4j2
 @Service
@@ -21,7 +21,7 @@ import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUs
 public class GreedyService<T> implements FindPathUseCase {
 
     @Override
-    public OptimalPathResponse findPath(String data) {
+    public FoundPathResponse findPath(String data) {
 
         // read the data
         DataParser dataParser = new DataParser();
