@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
-import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse.success;
-
 @Log4j2
 @Service
 @Qualifier("greedyService")
@@ -31,7 +28,6 @@ public class GreedyService<T> implements FindPathUseCase {
         CityTraveller greedy = new CityTraveller(cities);
 
         // run the algo
-        FindPathResponse result = greedy.findGreedyPath();
-        return success(result);
+        return greedy.findGreedyPath();
     }
 }

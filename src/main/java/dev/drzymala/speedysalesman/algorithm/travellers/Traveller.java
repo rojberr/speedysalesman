@@ -1,21 +1,10 @@
 package dev.drzymala.speedysalesman.algorithm.travellers;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import java.util.List;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse;
 
 public interface Traveller<T> {
 
-    FindPathResponse findGreedyPath();
+    FoundPathResponse findGreedyPath();
 
-    FindPathResponse findAntPath();
-
-    @Data
-    @AllArgsConstructor
-    class FindPathResponse {
-        long totalTimeNano;
-        double totalDistance;
-        List<?> shortestPath;
-    }
+    FoundPathResponse findAntPath();
 }

@@ -1,6 +1,7 @@
 package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -15,12 +16,12 @@ public class CityTraveller<T> implements Traveller<City> {
     private List<City> shortestPath = new ArrayList<>();
 
     @Override
-    public FindPathResponse findAntPath() {
+    public FoundPathResponse findAntPath() {
 
         return null;
     }
 
-    public FindPathResponse findGreedyPath() {
+    public FoundPathResponse findGreedyPath() {
 
         requireNotEmpty(cityList);
         shortestPath.add(0, cityList.get(0));
@@ -38,7 +39,7 @@ public class CityTraveller<T> implements Traveller<City> {
         }
         long endTime = System.nanoTime();
         long totalTimeNano = (endTime - startTime);
-        return new FindPathResponse(totalTimeNano, totalDistance, shortestPath);
+        return new FoundPathResponse(totalTimeNano, totalDistance, shortestPath);
     }
 
     private void requireNotEmpty(List<City> list) {

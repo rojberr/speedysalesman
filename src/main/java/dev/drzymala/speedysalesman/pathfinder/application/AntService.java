@@ -3,7 +3,6 @@ package dev.drzymala.speedysalesman.pathfinder.application;
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
 import dev.drzymala.speedysalesman.algorithm.parsers.DataParser;
 import dev.drzymala.speedysalesman.algorithm.travellers.AntTraveller;
-import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
 import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -27,8 +26,6 @@ public class AntService implements FindPathUseCase {
 
         // load the data to algo object
         AntTraveller antTraveller = new AntTraveller(cities);
-        FindPathResponse result = antTraveller.startAntOptimization();
-
-        return FoundPathResponse.success(result);
+        return antTraveller.startAntOptimization();
     }
 }

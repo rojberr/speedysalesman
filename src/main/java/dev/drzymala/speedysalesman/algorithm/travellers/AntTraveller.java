@@ -2,7 +2,7 @@ package dev.drzymala.speedysalesman.algorithm.travellers;
 
 import dev.drzymala.speedysalesman.algorithm.domain.ants.Ant;
 import dev.drzymala.speedysalesman.algorithm.domain.city.City;
-import dev.drzymala.speedysalesman.algorithm.travellers.Traveller.FindPathResponse;
+import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse;
 import lombok.Value;
 
 import java.util.*;
@@ -74,7 +74,7 @@ public class AntTraveller {
     /**
      * Perform ant optimization
      */
-    public FindPathResponse startAntOptimization() {
+    public FoundPathResponse startAntOptimization() {
         long startTime = System.nanoTime();
         IntStream.rangeClosed(1, 250)
                 .forEach(i -> {
@@ -85,7 +85,7 @@ public class AntTraveller {
         long endTime = System.nanoTime();
         long totalTimeNano = (endTime - startTime);
 
-        return new FindPathResponse(totalTimeNano, result.getBestTourLength(), Collections.singletonList(result.getBestTourOrder()));
+        return new FoundPathResponse(totalTimeNano, result.getBestTourLength(), Collections.singletonList(result.getBestTourOrder()));
     }
 
     /**

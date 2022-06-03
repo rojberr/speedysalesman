@@ -1,12 +1,16 @@
 package dev.drzymala.speedysalesman.pathfinder.web;
 
 import dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase;
-import lombok.AllArgsConstructor;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+import static dev.drzymala.speedysalesman.pathfinder.application.port.FindPathUseCase.FoundPathResponse;
 
 @Slf4j
 @RequestMapping("/greedy")
@@ -21,14 +25,9 @@ public class GreedyController<T> {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Object findGreedyPath(@RequestBody String data) {
+    public ResponseEntity<FoundPathResponse> findGreedyPath(@RequestBody String data) {
 
-        log.info("Received data " + data);
-        return greedyService
-                .findPath(data)
-                .handle(
-                        cities -> new ResponseEntity(cities, HttpStatus.OK),
-                        error -> ResponseEntity.badRequest().body(error)
-                );
+        log.info("Received data");
+        return new ResponseEntity<>(greedyService.findPath(data), HttpStatus.OK);
     }
 }
