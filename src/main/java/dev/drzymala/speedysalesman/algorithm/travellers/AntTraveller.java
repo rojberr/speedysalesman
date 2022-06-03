@@ -34,19 +34,6 @@ public class AntTraveller implements Traveller {
     private int[] bestTourOrder;
     private double bestTourLength;
 
-    public AntTraveller(int noOfCities) {
-
-        cityList = null;
-        graph = generateRandomMatrix(noOfCities);
-        numberOfCities = graph.length;
-        numberOfAnts = (int) (numberOfCities * antFactor);
-
-        trails = new double[numberOfCities][numberOfCities];
-        probabilities = new double[numberOfCities];
-        IntStream.range(0, numberOfAnts)
-                .forEach(i -> ants.add(new Ant(numberOfCities)));
-    }
-
     public AntTraveller(List<City> cities) {
 
         this.cityList = cities;
