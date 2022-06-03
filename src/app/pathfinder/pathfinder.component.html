@@ -14,7 +14,8 @@
       <!-- Data -->
       <div class="field">
         <label class="label">Your Data</label>
-        <textarea name="data" type="text" class="textarea is-large" [(ngModel)]="data" #dataInput="ngModel" required>
+        <textarea name="data" type="text" class="textarea is-large" [(ngModel)]="data" #dataInput="ngModel"
+          value="{{parseGeneratedData(generatedResponse)}}" required>
         </textarea>
 
         <div class="help is-error" *ngIf="dataInput.invalid && dataInput.touched">
