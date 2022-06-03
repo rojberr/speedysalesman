@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -18,19 +17,30 @@ export class PathfinderService {
    * 1 x y
    * 2 x y
    * ...
+   * And calculate using TSP greedy algorithm
    */
   postGreedyPath(data: any) {
     return this.http.post(this.greedyURL, data, { responseType: 'text' });
   }
 
+  /**
+   * Post the data in format:
+   * #amount
+   * 1 x y
+   * 2 x y
+   * ...
+   * And calculate using TSP ant algorithm
+   */
   postAntPath(data: any) {
     return this.http.post(this.antURL, data, { responseType: 'text' });
   }
 
   /**
-   * Send request to generate the data
+   * Generate #n amount of instances
    */
   generateData(numberOfGenerated: number) {
-    return this.http.post(this.generateURL, numberOfGenerated);
+    return this.http.post(this.generateURL, numberOfGenerated, {
+      responseType: 'text',
+    });
   }
 }
