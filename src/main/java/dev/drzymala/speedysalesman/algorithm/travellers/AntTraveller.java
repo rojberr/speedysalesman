@@ -16,10 +16,10 @@ public class AntTraveller implements Traveller {
     private double beta = 12;
     private double evaporation = 0.5;
     private double Q = 500;
-    private double antFactor = 0.8;
+    private double antFactor = 0.1;
     private double randomFactor = 0.05;
 
-    private int maxIterations = 100;
+    private int maxIterations = 5;
 
     private int numberOfCities;
     private int numberOfAnts;
