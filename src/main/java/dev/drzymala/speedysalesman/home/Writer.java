@@ -1,4 +1,4 @@
-package dev.drzymala.speedysalesman.presenter.application;
+package dev.drzymala.speedysalesman.home;
 
 import lombok.AllArgsConstructor;
 
