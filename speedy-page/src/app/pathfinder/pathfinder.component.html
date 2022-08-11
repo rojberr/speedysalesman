@@ -1,0 +1,40 @@
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">Give me data!</h1>
+      <p class="subtitle"> I'll find you the shortest path! </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Send data form -->
+    <form #contactForm="ngForm">
+      <!-- Data -->
+      <div class="field">
+        <label class="label">Your Data</label>
+        <textarea name="data" type="text" class="textarea is-large" [(ngModel)]="data" #dataInput="ngModel"
+          value="{{parseGeneratedData(generatedResponse)}}" required>
+        </textarea>
+
+        <div class="help is-error" *ngIf="dataInput.invalid && dataInput.touched">
+          Data is required.
+        </div>
+      </div>
+      <div class="buttons">
+        <!-- Submit Greedy button -->
+        <button (click)="calculateGreedyPath()" class="button is-large is-warning" [disabled]="contactForm.invalid">
+          Calculate Greedy Path
+        </button>
+        <!-- Submit Ant button -->
+        <button (click)="calculateAntPath()" class="button is-large is-warning" [disabled]="contactForm.invalid">
+          Calculate Ant Path
+        </button>
+        <!-- Generate button -->
+        <button class="button is-large is-info" (click)="generateData()">Generate</button>
+      </div>
+    </form>
+    {{foundPathResponse}}
+  </div>
+</section>
