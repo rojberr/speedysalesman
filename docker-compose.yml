@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+
+  speedy_api:
+    build:
+      context: ./speedy-api
+      dockerfile: Dockerfile-speedy-api
+    image: speedy-api:0.0.1
+    container_name: speedy_api
+    ports:
+      - "8081:8081"
+
+#  speedy_page:
+#    build:
+#      context: ./speedy-page
+#      dockerfile: Dockerfile-speedy-page
+#    image: speedy-page:0.0.1
+#    container_name: speedy_page
+#    ports:
+#      - "8080:80"
+#    restart: unless-stopped

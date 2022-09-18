@@ -15,10 +15,14 @@ Two repositories, API and Angular frontend repository are currently being merged
 This API generates a list of point coordinates, or let's you use your own list,
 and calculates the shortest possible loop that connects every point using metaheuristic approach.
 
-0) To run the API and website interface locally type:
+0) [Install Docker](https://docs.docker.com/get-docker/) on your system.
+
+1) To run the API and website interface locally run the `docker-compose up` from source directory 
+(this will build Docker images and run them) :
 ```bash
 docker-compose up
 ```
+⚠️ The Docker build may take some time ⚠️ 
 
 1) Then go to the:
 > localhost:8080
